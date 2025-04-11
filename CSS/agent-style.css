@@ -1,0 +1,71 @@
+.top-agents {
+  text-align: center;
+  padding: 40px 20px;
+  background: url('../Assets/Backgrounds/banner7.png') no-repeat center center/cover;
+  filter: brightness(80%);
+  color: white;
+}
+
+.top-agents h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.agent-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+
+.agent {
+  position: relative;
+  width: 300px;
+  height: auto;
+  margin-top: 30px;
+}
+
+.agents-container {
+  text-align: center;
+  background: url('../Assets/Backgrounds/banner8.png') no-repeat center center/cover;
+  color: white;
+}
+
+.agent img.default-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  position: relative; 
+}
+
+.agent img.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.agent:hover img.hover-img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.agent:hover img.default-img {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .agent{
+      width: 48% !important;
+    }
+  }
