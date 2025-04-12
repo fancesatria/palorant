@@ -1,40 +1,90 @@
+/* COLOR */
+:root {
+    --primary-color: #000000;
+    --primary2-color: #000000;
+    --secondary-color: #AD49E1;
+    --text-color: #EEEEEE;
+    --hover-color: #ad54dc;
+    --light-grey: #838383;
+}
+
+@font-face {
+    font-family: 'GameBattles';
+    src: url('../Assets/fonts/game_battles/game-battles.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'overcame';
+    src: url('../Assets/fonts/overcame-demo/OvercameDemoRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .maps-container {
-padding: 40px 20px;
-display: flex;
-flex-direction: column;
-gap: 40px;
-background-color: var(--primary-color);
-color: var(--text-color);
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* background-color: var(--primary-color); */
+    background: url('../Assets/Backgrounds/banner10.png') no-repeat center center/cover;
+    color: var(--text-color);
+}
+
+.sharp-line {
+  width: 0;
+  height: 0;
+  border-left: 43vw solid transparent;
+  border-right: 43vw solid transparent;
+  border-top: 4px solid var(--secondary-color); 
+  margin: 10px auto;
+  opacity: 0.7;
+}
+
+.map-content {
+    padding: 20px;
+}
+
+.map-content h3 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--secondary-color);
+    font-family: 'overcame', sans-serif;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 0.01px var(--text-color);
 }
 
 .map-item {
-display: flex;
-align-items: center;
-gap: 30px;
-flex-wrap: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.map-item img:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
 }
 
 .map-item img {
-width: 50%;
-height: auto;
-margin: 20px;
-border-radius: 8px;
-object-fit: cover;
+    width: 50%;
+    height: auto;
+    margin: 20px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .map-item {
-flex: 1;
-}
-
-.map-item h2 {
-font-size: 24px;
-margin-bottom: 10px;
+    flex: 1;
 }
 
 .map-item p {
-font-size: 16px;
-line-height: 1.5;
-text-align: justify;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 @media screen and (max-width: 768px) {
@@ -44,5 +94,8 @@ text-align: justify;
     .map-item img {
         width: 90% !important;
         height: auto;
+    }
+    .map-content h3 {
+        font-size: 35px;
     }
 }
