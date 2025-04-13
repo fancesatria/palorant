@@ -84,6 +84,8 @@ nav ul li a {
   position: relative;
   text-decoration: none;
   color: var(--text-color);
+  font-family: 'overcame', sans-serif;
+  letter-spacing: 3px;
   font-size: 95%;
   font-weight: 400;
   padding: 4px 8px;
@@ -183,6 +185,8 @@ nav ul li a:hover::after {
   position: relative;
   text-decoration: none;
   color: var(--text-color);
+  font-family: 'overcame', sans-serif;
+  letter-spacing: 3px;
   font-size: 95%;
   font-weight: 400;
   padding: 5px 10px;

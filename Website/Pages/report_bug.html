@@ -44,39 +44,41 @@
     </div>
 
     <section class="bug-report-section">
-      <div class="container">
-        <div class="report-header">
-          <h2>BUG</h2>
-          <h1>REPORT</h1>
-        </div>
-        
-        <form class="bug-report-form">
+      <div class="form-card">
+        <form class="bug-report-form" id="bug-report-form">
           <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control">
+            <label>Username<span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="example: shadowstrike03" id="username">
           </div>
           
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control">
+            <label>Email<span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="example: hello123@gmail.com" id="email">
           </div>
           
           <div class="form-group">
-            <label>Server</label>
-            <input type="text" class="form-control">
+            <label>Server<span class="required">*</span></label>
+            <select name="server" id="server" class="form-control">
+              <option value="" disabled selected>Select a server</option>
+              <option value="indonesia">Indonesia</option>
+              <option value="vietnam">Vietnam</option>
+              <option value="america">United States</option>
+              <option value="russia">Russia</option>
+              <option value="sweden">Sweden</option>
+            </select>
           </div>
           
           <div class="form-group">
-            <label>Description</label>
-            <textarea class="form-control" rows="4"></textarea>
+            <label>Description<span class="required">*</span></label>
+            <textarea class="form-control" rows="6" placeholder="example: Can't login into my account..." id="description"></textarea>
           </div>
           
           <div class="checkbox-group">
             <input type="checkbox" id="followup">
-            <label for="followup">Allow to receive follow up mail</label>
+            <label for="followup">Allow to receive follow up email</label>
           </div>
           
-          <button type="submit" class="send-button">Send</button>
+          <button type="submit" class="send-btn">Submit</button>
         </form>
       </div>
     </section>
@@ -109,6 +111,7 @@
     </footer>
 
     <!-- Script -->
-    <script src="../script.js"></script>
+    <script src="../JS/nav-script.js"></script>
+    <script src="../JS/report-script.js"></script>
   </body>
 </html>
