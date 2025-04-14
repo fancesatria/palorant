@@ -33,10 +33,12 @@ form.addEventListener("submit", function(event) {
         alert('Description is too long, it should be at most 500 characters long');
         return;
 
-    } else if (checkbox === false) {
-        alert('Please check the follow-up box');
-        return;
-    }
+    } 
+    // else if (checkbox === false) {
+    //     alert('Please check the follow-up box');
+    //     return;
+    // }
 
     alert("Report submitted successfully");
+    form.reset();
 });
