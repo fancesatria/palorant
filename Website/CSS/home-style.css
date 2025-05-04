@@ -48,6 +48,32 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  .jumbotron h1{
+    font-size: 6rem !important;
+  }
+  .jumbotron p {
+    font-size: 20px !important;
+  }
+  .game-overview {
+    flex-direction: column;
+    align-items: center;
+  }
+  .game-overview img {
+    width: 100% !important;
+    height: auto;
+    margin-top: 20px;
+  }
+  .map-overview {
+    width: 100% !important;
+    height: auto;
+    margin-top: 20px;
+  }
+  .game-overview h2 {
+    font-size: 20px !important;
+  }
+}
+
 /* Jumbotron */
 .jumbotron {
   /* background: url('Assets/Backgrounds/banner4.gif') no-repeat center center/cover; */
@@ -105,13 +131,13 @@ video {
 }
 
 .btn:hover {
-  background-color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.2);
   transition: background-color 0.5s ease;
-  color: var(--secondary-color);
-  border: 3px solid var(--secondary-color);
+  color: var(--text-color);
+  border: 3px solid var(--text-color);
 }
 
-/* Transition Box */
+
 .transition-box {
   position: absolute;
   top: 100%;
@@ -242,6 +268,16 @@ video {
   }
 }
 
+@media screen and (max-width: 834px) {
+  .overview-item{
+      flex-wrap: wrap !important;
+  }
+  .overview-item img {
+      width: 90% !important;
+      height: auto;
+  }
+}
+
 
 /* Top Agents */
 .top-agents {
@@ -309,6 +345,12 @@ video {
 }
 
 @media screen and (max-width: 768px) {
+  .agent {
+    width: 48% !important;
+  }
+}
+
+@media screen and (max-width: 834px) {
   .agent {
     width: 48% !important;
   }

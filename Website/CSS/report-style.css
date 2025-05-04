@@ -9,6 +9,7 @@
 }
 
 .bug-report-section {
+  flex: 1;
   padding: 30px 30px;
   color: var(--text-color);
   height: auto;
@@ -95,4 +96,79 @@
   transition: background-color 0.5s ease;
   color: var(--secondary-color);
   border: 2px solid var(--secondary-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #222;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  animation: fadeIn 0.5s ease;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin: 0 auto 20px auto;
+}
+
+.checkmark-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid #4CAF50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.checkmark-stem {
+  position: absolute;
+  width: 5px;
+  height: 25px;
+  background-color: #4CAF50;
+  left: 35px;
+  top: 40px;
+  transform: rotate(45deg);
+  animation: stem 0.3s ease-out forwards;
+}
+
+.checkmark-kick {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  background-color: #4CAF50;
+  left: 25px;
+  top: 50px;
+  transform: rotate(-45deg);
+  animation: kick 0.3s 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes stem {
+  from { height: 0; }
+  to { height: 25px; }
+}
+
+@keyframes kick {
+  from { height: 0; }
+  to { height: 15px; }
 }

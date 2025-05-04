@@ -5,6 +5,7 @@
 }
 
 .agent-list {
+  flex: 1;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -55,4 +56,10 @@
     .agent{
       width: 48% !important;
     }
+}
+
+@media screen and (min-width: 768px) and (max-width: 834px) {
+  .agent{
+    width: 48% !important;
+  }
 }
