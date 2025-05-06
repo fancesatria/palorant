@@ -15,3 +15,17 @@ window.onclick = function (event) {
       modal.style.display = "none";
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const para = document.querySelector('.main-article p');
+    const button = document.getElementById('readMoreBtn');
+
+    if (window.innerWidth <= 768) {
+      para.classList.add('collapsed');
+    }
+
+    button.addEventListener('click', function () {
+      para.classList.toggle('collapsed');
+      button.textContent = para.classList.contains('collapsed') ? 'Read more' : 'Show less';
+    });
+  });
