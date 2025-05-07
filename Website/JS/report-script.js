@@ -1,59 +1,95 @@
-let form = document.querySelector('form');
-
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
-    let server = document.getElementById("server").value;
-    let description = document.getElementById("description").value;
-    let checkbox = document.getElementById("followup").checked;
-
-    // 1. Validation if form is blank
-    if (username === '' || email === '' || server === '' || description === '') {
-        alert('Please fill in all fields');
-        PerformanceObserver
-        return;
-    
-    // 2. Validation if form is filled with '-'
-    } else if (username === '-' || email === '-' || description === '-') {
-        alert('Invalid input');
-        return;
-        
-    // 3. email must be ended with @gmail.com
-    } else if(email.endsWith('@gmail.com') === false){
-        alert('Invalid email address, must be ended with @gmail.com');
-        return;
-
-    // 4. Email at least 11 character (a@gmail.com)
-    } else if (email.length < 11) {
-        alert('Email is too short, it should be at least 11 characters long');
-        return;
-
-    // 5. Description content at least contain 5 character
-    } else if (description.length < 5) {
-        alert('Description is too short, it should be at least 5 characters long');
-        return;
-
-    // 6. Description content is less than 500 character
-    } else if (description.length > 500) {
-        alert('Description is too long, it should be at most 500 characters long');
-        return;
-
-    } 
-    // else if (checkbox === false) {
-    //     alert('Please check the follow-up box');
-    //     return;
-    // }
-
-    showModal();
-    form.reset();
-});
+const form = document.getElementById("bug-report-form");
 
 function showModal() {
-    const modal = document.getElementById('successModal');
-    modal.style.display = 'flex';
-
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 3000);
+  const modal = document.getElementById("successModal");
+  modal.style.display = "flex";
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 3000);
 }
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const username = document.getElementById("username");
+  const email = document.getElementById("email");
+  const server = document.getElementById("server");
+  const description = document.getElementById("description");
+
+  const inputs = [username, email, server, description];
+  let isValid = true;
+
+  // List of the Validation:
+  // 1. Validation if form empty
+  // 2. Validation if form is filled with '-'
+  // 3. Email validation: ended withd @gmail.com
+  // 4. Email validation: min 11 character (a@gmail.com)
+  // 5. Descripion length validation: min 5, max 500 character
+
+  // Reset all errors
+  inputs.forEach((input) => {
+    input.classList.remove("invalid");
+    input.nextElementSibling.textContent = "";
+  });
+
+  // === Username validation ===
+  if (username.value.trim() === "") {
+    username.classList.add("invalid");
+    username.nextElementSibling.textContent = "Username is required.";
+    isValid = false;
+  } else if (username.value === "-") {
+    username.classList.add("invalid");
+    username.nextElementSibling.textContent = "Invalid username.";
+    isValid = false;
+  }
+
+  // === Email validation ===
+  if (email.value.trim() === "") {
+    email.classList.add("invalid");
+    email.nextElementSibling.textContent = "Email is required.";
+    isValid = false;
+  } else if (email.value.length < 11) {
+    email.classList.add("invalid");
+    email.nextElementSibling.textContent = "Email must be at least 11 characters.";
+    isValid = false;
+  } else if (email.value === "-") {
+    email.classList.add("invalid");
+    email.nextElementSibling.textContent = "Invalid email.";
+    isValid = false;
+  } else if (!email.value.endsWith("@gmail.com")) {
+    email.classList.add("invalid");
+    email.nextElementSibling.textContent = "Email must end with @gmail.com.";
+    isValid = false;
+  } 
+
+  // === Server validation ===
+  if (server.value === "") {
+    server.classList.add("invalid");
+    server.nextElementSibling.textContent = "Server selection is required.";
+    isValid = false;
+  }
+
+  // === Description validation ===
+  if (description.value.trim() === "") {
+    description.classList.add("invalid");
+    description.nextElementSibling.textContent = "Description is required.";
+    isValid = false;
+  } else if (description.value === "-") {
+    description.classList.add("invalid");
+    description.nextElementSibling.textContent = "Invalid description.";
+    isValid = false;
+  } else if (description.value.length < 5) {
+    description.classList.add("invalid");
+    description.nextElementSibling.textContent = "Description must be at least 5 characters.";
+    isValid = false;
+  } else if (description.value.length > 500) {
+    description.classList.add("invalid");
+    description.nextElementSibling.textContent = "Description must be less than 500 characters.";
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  showModal();
+  form.reset();
+});

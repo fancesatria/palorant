@@ -1,31 +1,33 @@
-const modal = document.getElementById("newsModal");
-const btn = document.getElementById("readMoreBtn");
-const span = document.querySelector(".modal .close");
-
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
-    const para = document.querySelector('.main-article p');
-    const button = document.getElementById('readMoreBtn');
+  const modal = document.getElementById("newsModal");
+  const para = document.querySelector('.main-article p');
+  const button = document.getElementById('readMoreBtn');
+  const span = document.querySelector(".modal .close");
 
-    if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 768) {
       para.classList.add('collapsed');
-    }
+      button.textContent = 'Read more';
+  }
 
-    button.addEventListener('click', function () {
+  button.addEventListener('click', function () {
       para.classList.toggle('collapsed');
-      button.textContent = para.classList.contains('collapsed') ? 'Read more' : 'Show less';
-    });
+      const isCollapsed = para.classList.contains('collapsed');
+
+      button.textContent = isCollapsed ? 'Read more' : 'Show less';
+      modal.style.display = isCollapsed ? 'none' : 'block';
   });
+
+  span.onclick = function () {
+      modal.style.display = "none";
+      para.classList.add('collapsed');
+      button.textContent = 'Read more';
+  };
+
+  window.onclick = function (event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          para.classList.add('collapsed');
+          button.textContent = 'Read more';
+      }
+  };
+});
