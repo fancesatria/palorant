@@ -250,7 +250,9 @@
 }
   
 .modal-content {
-    background-color: var(--text-color);
+    /* background-color: var(--text-color); */
+    background-color: #222;
+    color: var(--text-color);
     margin: auto;
     padding: 20px;
     border-radius: 10px;
@@ -269,7 +271,7 @@
     font-size: 16px;
     margin-top: 10px;
     text-align: justify;
-    color: var(--primary2-color);
+    color: var(--text-color);
 }
   
 .close {
