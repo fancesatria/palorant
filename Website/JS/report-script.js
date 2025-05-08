@@ -58,7 +58,7 @@ form.addEventListener("submit", function (event) {
     isValid = false;
   } else if (!email.value.endsWith("@gmail.com")) {
     email.classList.add("invalid");
-    email.nextElementSibling.textContent = "Email must end with @gmail.com.";
+    email.nextElementSibling.textContent = "Email must end with @gmail.com";
     isValid = false;
   } 
 
