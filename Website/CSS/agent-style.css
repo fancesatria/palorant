@@ -5,17 +5,17 @@
 }
 
 .agent-list {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
   margin: 30px;
 }
 
 .agent {
   position: relative;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: auto;
   margin-top: 30px;
 }
@@ -25,7 +25,7 @@
   width: 100%;
   height: auto;
   border-radius: 5px;
-  position: relative; 
+  position: relative;
 }
 
 .agent img.hover-img {
@@ -53,13 +53,21 @@
 }
 
 @media screen and (max-width: 768px) {
-    .agent{
-      width: 48% !important;
-    }
+  .agent-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agent {
+    width: 100%;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 834px) {
-  .agent{
-    width: 48% !important;
+@media screen and (max-width: 480px) {
+  .agent-list {
+    grid-template-columns: 1fr;
+  }
+
+  .agent {
+    width: 100%;
   }
 }
